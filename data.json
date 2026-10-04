@@ -1,0 +1,31 @@
+{
+  "mcp_version": "1.0",
+  "tools": [
+    {
+      "name": "execute_database_migration",
+      "description": "Runs DB migration",
+      "requires_approval": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "script_path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "read_user_profile",
+      "requires_approval": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "maxLength": 36
+          }
+        }
+      }
+    }
+  ]
+}
