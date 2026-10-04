@@ -45,68 +45,32 @@ mcp_scanner/
     ├── test_injection.py      # Sample vulnerable target script
     └── test_target.py         # Sample clean target script
 ```
+## 🔍 Core Features
 
-🔍 Core Features
-1. Static Application Security Testing (SAST)
+### 1. Static Application Security Testing (SAST)
 
-Inspects MCP server manifests (.json) and Python source code (.py) prior to deployment for static risks:
+Inspects MCP server manifests (`.json`) and Python source code (`.py`) prior to deployment for static risks:
 
-    Environment Variable Exposure: Detects unconstrained wildcard patterns (env.*) in manifests.
+* **Environment Variable Exposure**: Detects unconstrained wildcard patterns (`env.*`) in manifests.
+* **Dangerous System Calls**: Flags high-risk execution primitives (`subprocess`, `os.system`, `shutil.rmtree`).
+* **Severity Classification**: Categorizes findings into standard severity levels (`LOW`, `MEDIUM`, `HIGH`, `CRITICAL`).
 
-    Dangerous System Calls: Flags high-risk execution primitives (subprocess, os.system, shutil.rmtree).
+### 2. Dynamic Application Security Testing (DAST)
 
-    Severity Classification: Categorizes findings into standard severity levels (LOW, MEDIUM, HIGH, CRITICAL).
+Simulates targeted **Indirect Prompt Injection** attacks against agent execution contexts and evaluates outputs:
 
-2. Dynamic Application Security Testing (DAST)
+* **System Prompt Leaking**: Verifies resistance against secret disclosure or confidential keyword leaks.
+* **Tool Hijacking**: Detects unauthorized execution of system tools triggered by untrusted context.
+* **Data Exfiltration**: Identifies exfiltration attempts targeting external channels.
 
-Simulates targeted Indirect Prompt Injection attacks against agent execution contexts and evaluates outputs:
+## 🛠️ Installation & Setup
 
-    System Prompt Leaking: Verifies resistance against secret disclosure or confidential keyword leaks.
-
-    Tool Hijacking: Detects unauthorized execution of system tools triggered by untrusted context.
-
-    Data Exfiltration: Identifies exfiltration attempts targeting external channels.
-
-🛠️ Installation & Setup
-
-    Clone the repository and navigate to the project directory:
-    Bash
-
-    cd mcp_scanner
-
-    Activate your virtual environment and install the package in editable mode:
-    Bash
-
+1. **Clone the repository and navigate to the project directory:**
+   ```bash
+   cd mcp_scanner
+    ```
+2. **Activate your virtual environment and install the package in editable mode:**
+    ```bash
     pip install -e .
-
+     ```
 This registers the mcp-security command-line utility in your active terminal session.
-🚀 Usage
-Static Security Analysis (SAST)
-
-Scan manifests or source files using the CLI tool:
-Bash
-
-# Scan an MCP manifest file
-mcp-security --target ./examples/data.json --rules rules.yaml
-
-# Scan a Python source file
-mcp-security --target ./src/mcp_scanner/sast/ast_scanner.py --rules rules.yaml
-
-Dynamic Red-Teaming (DAST)
-
-Execute the automated attack simulation suite against the target agent:
-Bash
-
-python -m mcp_scanner.dast.harness
-
-Note: The harness runs against an un-guarded mock agent by default. Reported vulnerabilities validate that the evaluator correctly detects policy violations.
-🧪 Testing
-
-Run the full automated test suite covering both SAST and DAST modules:
-Bash
-
-# Run all tests
-pytest
-
-# Run tests with verbose output
-pytest -v
