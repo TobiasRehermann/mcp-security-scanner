@@ -1,13 +1,16 @@
-MCP Security Framework
+# MCP Security Framework
 
-A dual-purpose Enterprise Security Framework engineered for the Model Context Protocol (MCP) ecosystem and LLM agent architectures. The framework combines static code and configuration auditing (SAST) with an automated dynamic injection and red-teaming engine (DAST).
+A dual-purpose **Enterprise Security Framework** engineered for the Model Context Protocol (MCP) ecosystem and LLM agent architectures. The framework combines static code and configuration auditing (**SAST**) with an automated dynamic injection and red-teaming engine (**DAST**).
 
 Designed for integration into CI/CD pipelines, SecOps workflows, and enterprise compliance auditing frameworks.
-🏛️ Enterprise Architecture
 
-The framework enforces a strict separation of concerns through a modular src/-layout. It isolates static rule validation engines from dynamic agent evaluation, making it scalable for multi-tenant and enterprise agent environments.
-Plaintext
+---
 
+## 🏛️ Enterprise Architecture
+
+The framework enforces a strict separation of concerns through a modular `src/`-layout. It isolates static rule validation engines from dynamic agent evaluation, making it scalable for multi-tenant and enterprise agent environments.
+
+```text
 mcp_scanner/
 ├── pyproject.toml              # Package configuration, entry points, and Pytest settings
 ├── rules.yaml                  # Enterprise SAST security policies
