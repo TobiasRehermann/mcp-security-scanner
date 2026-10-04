@@ -74,3 +74,32 @@ Simulates targeted **Indirect Prompt Injection** attacks against agent execution
     pip install -e .
      ```
 This registers the mcp-security command-line utility in your active terminal session.
+## 🚀 Usage
+
+### Static Security Analysis (SAST)
+
+Scan manifests or source files using the CLI tool:
+# Scan an MCP manifest file
+```bash
+mcp-security --target ./examples/data.json --rules rules.yaml
+```
+# Scan a Python source file
+```bash
+mcp-security --target ./src/mcp_scanner/sast/ast_scanner.py --rules rules.yaml
+```
+### Dynamic Red-Teaming (DAST)
+
+#Execute the automated attack simulation suite against the target agent:
+```bash
+python -m mcp_scanner.dast.harness
+```
+Note: The harness runs against an un-guarded mock agent by default. Reported vulnerabilities validate that the evaluator correctly detects policy violations.
+## 🧪 Testing
+
+# Run the full automated test suite covering both SAST and DAST modules:
+```bash
+# Run all tests
+pytest
+
+# Run tests with verbose output
+pytest -v```
