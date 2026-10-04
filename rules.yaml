@@ -34,3 +34,16 @@ ast_rules:
     - "os.system"
     - "subprocess.Popen"
     - "sqlite3.connect"
+
+rules:
+  - id: "RULE-001"
+    name: "Wildcard Environment Access"
+    severity: "HIGH"
+    description: "Detects unconstrained environment variable exposure in MCP manifests."
+    pattern: "env.*"
+
+  - id: "RULE-002"
+    name: "Unrestricted Tool Execution"
+    severity: "CRITICAL"
+    description: "Detects execution of dangerous system-level commands or file deletion tools."
+    pattern: "(os\\.system|subprocess|shutil\\.rmtree)"

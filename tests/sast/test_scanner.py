@@ -1,8 +1,8 @@
 import json
 import pytest
 from mcp_scanner.models import Severity, Finding, PolicyConfig
-from mcp_scanner.mcp_scanner import scan_mcp_manifest
-from mcp_scanner.ast_scanner import scan_python_file
+from mcp_scanner.sast.mcp_scanner import scan_mcp_manifest
+from mcp_scanner.sast.ast_scanner import scan_python_file
 
 
 @pytest.fixture
