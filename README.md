@@ -44,6 +44,7 @@ mcp_scanner/
     ├── data.json               # Sample MCP server manifest
     ├── test_injection.py      # Sample vulnerable target script
     └── test_target.py         # Sample clean target script
+```
 
 🔍 Core Features
 1. Static Application Security Testing (SAST)
