@@ -1,0 +1,36 @@
+version: "1.0"
+manifest_rules:
+  dangerous_verbs:
+    - "delete"
+    - "execute"
+    - "drop"
+    - "write"
+    - "update"
+    - "remove"
+    - "purge"
+  read_only_prefixes:
+    - "get_"
+    - "read_"
+    - "fetch_"
+    - "list_"
+    - "search_"
+    - "view_"
+  destructive_keywords:
+    - "delete"
+    - "drop"
+    - "truncate"
+    - "overwrite"
+    - "remove"
+    - "purge"
+  toxic_combinations:
+    ingestion_keywords: ["fetch", "read_email", "scrape", "web_search", "download"]
+    execution_keywords: ["execute", "sql_query", "run_script", "system_cmd", "write_file"]
+
+ast_rules:
+  critical_sinks:
+    - "eval"
+    - "exec"
+  high_risk_sinks:
+    - "os.system"
+    - "subprocess.Popen"
+    - "sqlite3.connect"

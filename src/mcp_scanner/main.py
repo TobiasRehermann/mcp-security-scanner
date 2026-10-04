@@ -7,9 +7,9 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent.resolve()
 sys.path.insert(0, str(SCRIPT_DIR))
 
-from mcp_scanner.rule_engine import load_policy
-from mcp_scanner.mcp_scanner import scan_mcp_manifest
-from ast_scanner import scan_python_file
+from .rule_engine import load_policy
+from .mcp_scanner import scan_mcp_manifest
+from .ast_scanner import scan_python_file
 
 
 def main():

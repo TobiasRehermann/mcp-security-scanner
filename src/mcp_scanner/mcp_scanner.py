@@ -1,7 +1,7 @@
 import json
 import sys
 from typing import List, Dict, Any
-from models import Severity, Finding, PolicyConfig
+from .models import Severity, Finding, PolicyConfig
 
 
 def _check_rule_001(element: Dict[str, Any], policy: PolicyConfig) -> List[Finding]:

@@ -1,7 +1,9 @@
 import pytest
 import json
-from mcp_scanner import scan_mcp_manifest
-from mcp_scanner.models import Severity
+from mcp_scanner.models import Severity, Finding, PolicyConfig
+from mcp_scanner.mcp_scanner import scan_mcp_manifest
+from mcp_scanner.ast_scanner import scan_python_file
+from mcp_scanner.rule_engine import load_policy
 
 @pytest.fixture
 def sample_manifest(tmp_path):

@@ -1,7 +1,6 @@
 from pathlib import Path
 import yaml
-from mcp_scanner.models import PolicyConfig
-
+from .models import PolicyConfig
 
 def load_policy(policy_path: str = "rules.yaml") -> PolicyConfig:
     path = Path(policy_path)

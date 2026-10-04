@@ -1,7 +1,7 @@
 import ast
 import sys
 from typing import List
-from models import Severity, Finding, PolicyConfig
+from .models import Severity, Finding, PolicyConfig
 
 
 class AdvancedMCPToolVisitor(ast.NodeVisitor):
